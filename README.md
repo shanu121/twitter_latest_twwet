@@ -7,21 +7,33 @@ views.py
 
 
 from django.shortcuts import render_to_response
+
 from django.contrib.auth.models import User
+
 import sys
+
 from django.template import RequestContext
+
 import twitter
+
 import oauth2 as oauth
+
 import urlparse
+
 import cgi
+
 import tweepy
+
 from django.http import HttpResponseRedirect
 
 def home(request):
+
     context=RequestContext(request,{})
+    
     return render_to_response('index.html',context)
 
 def value(request):
+
     print 'as'
     request_token_url = 'http://twitter.com/oauth/request_token'
     authorize_url = 'http://twitter.com/oauth/authorize'
@@ -44,7 +56,9 @@ def value(request):
     return HttpResponseRedirect(url)
 
 def twitter_authenticated(request):
+
     access_token_url = 'http://twitter.com/oauth/access_token'
+    
     consumer_key = 'Q5yJ6RewFsFySSKan8RA'
     consumer_secret = 'McSol7X6Jrr7FZsrKGbK1n6uurqP1WOdHii2jPsXV2U'
     consumer = oauth.Consumer(consumer_key, consumer_secret)
@@ -73,16 +87,22 @@ def twitter_authenticated(request):
     auth.set_access_token(access_token['oauth_token'],access_token['oauth_token_secret'])
     api = tweepy.API(auth)
     tweet=api.user_timeline(count=1)
+    for i in tweet:
+       print i.text #this is the latest tweet by user
     return render_to_response('result.html',{'latest_tweet':tweet})
 
 
 urls.py
 
-rlpatterns = patterns('',
+urlpatterns = patterns('',
     # Examples:
+    
     url(r'^$', 'gettweet.views.home', name='home'),
+    
     url(r'^final$','gettweet.views.value',name="value"),
+    
     url(r'^twitter-authenticated$','gettweet.views.twitter_authenticated',name="auth"),
+    
 )
 
 index.html
