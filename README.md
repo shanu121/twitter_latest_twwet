@@ -37,8 +37,8 @@ def value(request):
     print 'as'
     request_token_url = 'http://twitter.com/oauth/request_token'
     authorize_url = 'http://twitter.com/oauth/authorize'
-    consumer_key = 'Q5yJ6RewFsFySSKan8RA'
-    consumer_secret = 'McSol7X6Jrr7FZsrKGbK1n6uurqP1WOdHii2jPsXV2U'
+    consumer_key = 'enter consumer key here'
+    consumer_secret = 'enter consumer secret here'
     consumer = oauth.Consumer(consumer_key, consumer_secret)
     client = oauth.Client(consumer)
     
