@@ -59,8 +59,8 @@ def twitter_authenticated(request):
 
     access_token_url = 'http://twitter.com/oauth/access_token'
     
-    consumer_key = 'Q5yJ6RewFsFySSKan8RA'
-    consumer_secret = 'McSol7X6Jrr7FZsrKGbK1n6uurqP1WOdHii2jPsXV2U'
+    consumer_key = 'add your consumer key'
+    consumer_secret = 'add consumer secret'
     consumer = oauth.Consumer(consumer_key, consumer_secret)
     token = oauth.Token(request.session['request_token']['oauth_token'],
     request.session['request_token']['oauth_token_secret'])
