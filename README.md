@@ -1,8 +1,8 @@
 twitter_latest_twwet
 ====================
 
-#this application provide latest tweet by user by using oauth2 authentication machenism.anyone can add this app in their application
-#here is view that will help to understand the flow of process of oauth 2 authentication
+#Application provides latest tweet of the user by using oauth2 authentication machenism.
+#Here is the flow of process of oauth 2 authentication
 views.py
 
 
